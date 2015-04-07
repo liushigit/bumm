@@ -3,8 +3,8 @@ var util = require('util');
 var errorTag = '<span class="error help-inline">%s</span>';
 
 module.exports = function(app) {
-    app.locals({
-        errorFor : function(model, property) {
+    app.locals
+        .errorFor : function(model, property) {
             if (model && model.errors) {
                 if (property && model.errors[property]) {
                     var error = model.errors[property];
@@ -18,17 +18,17 @@ module.exports = function(app) {
                     return util.format(errorTag, error.type || error.message);
                 }
             }
-        },
-
-        display : function(value) {
+        }
+    app.locals
+        .display : function(value) {
             if (util.isDate(value)) {
                 return value.toLocaleDateString();
             }
 
             return value;
-        },
-        
-       dateAsValue : function(date) {
+        }
+    app.locals   
+       .dateAsValue : function(date) {
             // check if this is a date 
             if(util.isDate(date)){
                 // if so we can format it to RFC3339 specification, 'yyyy-mm-dd'
@@ -40,5 +40,4 @@ module.exports = function(app) {
 
             return date;
         }
-    });
 };

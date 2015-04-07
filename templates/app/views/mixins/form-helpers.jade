@@ -23,4 +23,4 @@ mixin datetime(field, value)
   input.form-control(type="datetime", id=field, name=field, value=value)
 
 mixin errorMessage(model, field)
-  !{errorFor(model, field)}
+  #{errorFor(model, field)}
